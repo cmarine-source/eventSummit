@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketing Summit 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://static.photos/technology/1200x630/5');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .flip-countdown {
+            perspective: 1000px;
+        }
+        .flip-card {
+            transform-style: preserve-3d;
+            position: relative;
+            height: 60px;
+            width: 60px;
+            transform-origin: center;
+            transition: transform 0.6s;
+        }
+        .flip-top, .flip-bottom {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+            backface-visibility: hidden;
+        }
+        .flip-top {
+            top: 0;
+            background: #3B82F6;
+            border-radius: 8px 8px 0 0;
+            transform-origin: bottom;
+            transform: rotateX(0deg);
+            transition: transform 0.6s ease-in-out;
+        }
+        .flip-bottom {
+            bottom: 0;
+            background: #2563EB;
+            border-radius: 0 0 8px 8px;
+            transform-origin: top;
+            transform: rotateX(0deg);
+            transition: transform 0.6s ease-in-out;
+        }
+        input:focus {
+            border-color: #3B82F6 !important;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2) !important;
+            transition: all 0.3s ease;
+        }
+        .sticky-cta {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#register" class="sticky-cta bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center">
+            <i data-feather="edit-2" class="mr-2"></i> Register Now
+        </a>
+    </div>
+
+    <header class="sticky top-0 bg-white shadow-md z-40">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i data-feather="aperture" class="text-blue-500 w-8 h-8"></i>
+                <span class="ml-2 text-xl font-bold text-gray-800">DMSummit</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-blue-500 transition">About</a>
+                <a href="#speakers" class="text-gray-600 hover:text-blue-500 transition">Speakers</a>
+                <a href="#schedule" class="text-gray-600 hover:text-blue-500 transition">Schedule</a>
+                <a href="#register" class="text-gray-600 hover:text-blue-500 transition">Register</a>
+            </nav>
+            <button class="md:hidden focus:outline-none">
+                <i data-feather="menu" class="w-6 h-6 text-gray-600"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4" data-aos="fade-down">Digital Marketing Summit 2025</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Master the future of digital marketing with industry leaders
+            </p>
+            
+            <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm rounded-lg p-4">
+                    <div class="flex space-x-4">
+                        <div class="text-center">
+                            <div class="flip-countdown">
+                                <div class="flip-card">
+                                    <div class="flip-top flex items-center justify-center font-bold text-2xl" id="days-top">00</div>
+                                    <div class="flip-bottom flex items-center justify-center font-bold text-2xl" id="days-bottom">00</div>
+                                </div>
+                            </div>
+                            <span class="text-sm mt-1 block">Days</span>
+                        </div>
+                        <div class="text-center">
+                            <div class="flip-countdown">
+                                <div class="flip-card">
+                                    <div class="flip-top flex items-center justify-center font-bold text-2xl" id="hours-top">00</div>
+                                    <div class="flip-bottom flex items-center justify-center font-bold text-2xl" id="hours-bottom">00</div>
+                                </div>
+                            </div>
+                            <span class="text-sm mt-1 block">Hours</span>
+                        </div>
+                        <div class="text-center">
+                            <div class="flip-countdown">
+                                <div class="flip-card">
+                                    <div class="flip-top flex items-center justify-center font-bold text-2xl" id="minutes-top">00</div>
+                                    <div class="flip-bottom flex items-center justify-center font-bold text-2xl" id="minutes-bottom">00</div>
+                                </div>
+                            </div>
+                            <span class="text-sm mt-1 block">Minutes</span>
+                        </div>
+                        <div class="text-center">
+                            <div class="flip-countdown">
+                                <div class="flip-card" id="seconds-card">
+                                    <div class="flip-top flex items-center justify-center font-bold text-2xl" id="seconds-top">00</div>
+                                    <div class="flip-bottom flex items-center justify-center font-bold text-2xl" id="seconds-bottom">00</div>
+                                </div>
+                            </div>
+                            <span class="text-sm mt-1 block">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#register" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full transition transform hover:scale-105 shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+                Reserve Your Spot
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">About The Event</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <img src="http://static.photos/workspace/800x600/10" alt="Event Venue" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Transform Your Digital Strategy</h3>
+                    <p class="text-gray-600 mb-6">
+                        Join us for a full day of intensive learning and networking with the brightest minds in digital marketing. 
+                        Discover cutting-edge strategies, tools, and techniques that will take your marketing to the next level.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i data-feather="calendar" class="text-blue-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Date & Time</h4>
+                                <p class="text-gray-600">October 12, 2025 | 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-feather="map-pin" class="text-blue-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Location</h4>
+                                <p class="text-gray-600">Convention Center, 123 Business Ave, New York</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-feather="users" class="text-blue-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Participants</h4>
+                                <p class="text-gray-600">Limited to 200 seats for optimal experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="speakers" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Featured Speakers</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">
+                    Learn from industry pioneers who have transformed digital marketing landscapes
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://s.hdnux.com/photos/01/33/53/10/24031747/3/1200x0.jpg" alt="Speaker 1" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-gray-800">Sarah Johnson</h3>
+                        <p class="text-blue-500 mb-2">CMO at TechGlobal</p>
+                        <p class="text-gray-600 text-sm">Specializing in AI-driven marketing automation</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://harvardtechnologyreview.com/wp-content/uploads/2023/10/image.jpeg" alt="Speaker 2" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-gray-800">Michael Chen</h3>
+                        <p class="text-blue-500 mb-2">Founder of GrowthHack</p>
+                        <p class="text-gray-600 text-sm">Viral marketing and growth hacking expert</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://www.unioviedo.es/negocia2/wp-content/uploads/2024/01/emma-1152x1536.jpg" alt="Speaker 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-gray-800">Emma Rodriguez</h3>
+                        <p class="text-blue-500 mb-2">Head of Digital at BrandWorks</p>
+                        <p class="text-gray-600 text-sm">Data-driven content strategy specialist</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://ocbj.wppcdn.com/wp-content/uploads/2023/10/David-Wilson-webby-scaled-e1698103299594.jpg" alt="Speaker 4" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-gray-800">David Wilson</h3>
+                        <p class="text-blue-500 mb-2">CEO of AdVantage</p>
+                        <p class="text-gray-600 text-sm">Performance marketing and attribution modeling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Event Schedule</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">
+                    A day packed with actionable insights and networking opportunities
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500 text-white rounded-lg py-2 px-4 font-bold mr-4">9:00 AM</div>
+                        <h3 class="text-xl font-bold text-gray-800">Registration & Breakfast</h3>
+                    </div>
+                    <p class="text-gray-600 ml-20">Check-in and network with fellow attendees over coffee and light breakfast</p>
+                </div>
+                
+                <div class="mb-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500 text-white rounded-lg py-2 px-4 font-bold mr-4">10:00 AM</div>
+                        <h3 class="text-xl font-bold text-gray-800">Keynote: The Future of Digital Marketing</h3>
+                    </div>
+                    <p class="text-gray-600 ml-20">Sarah Johnson shares insights on emerging trends and technologies shaping the industry</p>
+                </div>
+                
+                <div class="mb-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500 text-white rounded-lg py-2 px-4 font-bold mr-4">12:00 PM</div>
+                        <h3 class="text-xl font-bold text-gray-800">Lunch & Networking</h3>
+                    </div>
+                    <p class="text-gray-600 ml-20">Enjoy a catered lunch while connecting with speakers and peers</p>
+                </div>
+                
+                <div class="mb-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500 text-white rounded-lg py-2 px-4 font-bold mr-4">1:30 PM</div>
+                        <h3 class="text-xl font-bold text-gray-800">Breakout Sessions</h3>
+                    </div>
+                    <p class="text-gray-600 ml-20">Choose from specialized tracks: Content Strategy, Paid Media, Automation, or Analytics</p>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-500 text-white rounded-lg py-2 px-4 font-bold mr-4">5:00 PM</div>
+                        <h3 class="text-xl font-bold text-gray-800">Closing Remarks & Happy Hour</h3>
+                    </div>
+                    <p class="text-gray-600 ml-20">Wrap up the day with final insights and informal networking with drinks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-500 text-white p-8 flex flex-col justify-center" data-aos="fade-right">
+                        <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Marketing?</h2>
+                        <p class="mb-6">Limited seats available. Register now to secure your spot at this exclusive event.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i data-feather="check-circle" class="mr-3"></i>
+                                <span>Full day of expert sessions</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="check-circle" class="mr-3"></i>
+                                <span>Networking with industry leaders</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="check-circle" class="mr-3"></i>
+                                <span>Actionable strategies you can implement</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="check-circle" class="mr-3"></i>
+                                <span>Lunch and refreshments included</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8" data-aos="fade-left">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Register Now</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="John Doe" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="john@example.com" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="company" class="block text-gray-700 font-medium mb-2">Company (Optional)</label>
+                                <input type="text" id="company" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Your Company">
+                            </div>
+                            <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-lg transition">
+                                Secure My Spot
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i data-feather="aperture" class="text-blue-400 w-8 h-8"></i>
+                        <span class="ml-2 text-xl font-bold">DMSummit</span>
+                    </div>
+                    <p class="text-gray-400">
+                        The premier digital marketing conference for professionals looking to stay ahead of the curve.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#speakers" class="text-gray-400 hover:text-white transition">Speakers</a></li>
+                        <li><a href="#schedule" class="text-gray-400 hover:text-white transition">Schedule</a></li>
+                        <li><a href="#register" class="text-gray-400 hover:text-white transition">Register</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="w-4 h-4 mr-2"></i>
+                            <span>info@dmsummit.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="w-4 h-4 mr-2"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="w-4 h-4 mr-2"></i>
+                            <span>123 Business Ave, New York</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Digital Marketing Summit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Calcola la data dell'evento 21 giorni nel futuro
+        const now = new Date();
+        const eventDate = new Date();
+        eventDate.setDate(now.getDate() + 21);
+
+        // Funzione per aggiornare il countdown
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = eventDate.getTime() - now;
+
+            if (distance < 0) {
+                // Se l'evento è passato, mostra zeri
+                document.getElementById('days-top').textContent = '00';
+                document.getElementById('days-bottom').textContent = '00';
+                document.getElementById('hours-top').textContent = '00';
+                document.getElementById('hours-bottom').textContent = '00';
+                document.getElementById('minutes-top').textContent = '00';
+                document.getElementById('minutes-bottom').textContent = '00';
+                document.getElementById('seconds-top').textContent = '00';
+                document.getElementById('seconds-bottom').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Funzione per formattare il numero con lo zero iniziale
+            const formatNumber = num => num < 10 ? '0' + num : num;
+
+            // Aggiorna solo i secondi con l'animazione
+            updateFlipCard('seconds', seconds);
+
+            // Aggiorna gli altri valori senza animazione
+            document.getElementById('days-top').textContent = formatNumber(days);
+            document.getElementById('days-bottom').textContent = formatNumber(days);
+            document.getElementById('hours-top').textContent = formatNumber(hours);
+            document.getElementById('hours-bottom').textContent = formatNumber(hours);
+            document.getElementById('minutes-top').textContent = formatNumber(minutes);
+            document.getElementById('minutes-bottom').textContent = formatNumber(minutes);
+        }
+
+        function updateFlipCard(id, newValue) {
+            const topEl = document.getElementById(id + '-top');
+            const bottomEl = document.getElementById(id + '-bottom');
+            const formattedValue = newValue < 10 ? '0' + newValue : newValue;
+            const currentTop = topEl.textContent;
+
+            // Aggiorna solo se il valore è cambiato
+            if (formattedValue !== currentTop) {
+                // Inizia l'animazione di flip
+                const card = topEl.closest('.flip-card');
+                card.style.transform = 'rotateX(180deg)';
+
+                // Dopo l'animazione, aggiorna i numeri
+                setTimeout(() => {
+                    topEl.textContent = formattedValue;
+                    bottomEl.textContent = formattedValue;
+                    card.style.transform = 'rotateX(0deg)';
+                }, 300); // Metà della durata della transizione CSS
+            }
+        }
+        
+        // Inizializza il countdown
+        updateCountdown();
+        // Aggiorna il countdown ogni secondo
+        setInterval(updateCountdown, 1000);
+
+        // Inizializza le librerie
+        window.onload = function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            feather.replace();
+        };
+    </script>
+</body>
+</html>
